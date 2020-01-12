@@ -6,13 +6,14 @@ export const ToDoReducer = (state,action) =>{
         case 'ADD_TASK':
             let time = new Date();
             return( 
-            [...state, { 
+            [ { 
                 id:uid(),
                 title:action.task.title,
                 howLong:action.task.howLong,
                 unitOfTime:action.task.time,
                 addTimeInMilisec:time.getTime()
-            }]
+            }, ...state
+        ]
             )
         case 'REMOVE_TASK':       
             return state.filter(task =>  task.id !== action.id)

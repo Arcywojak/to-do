@@ -4,6 +4,8 @@ import {DoneContext} from '../contexts/DoneContext'
 import ok from '../images/ok.svg'
 import trash from '../images/trash-black.svg'
 import {ChangeComponent} from '../contexts/changeComponentContext';
+import added from '../images/added.svg';
+import timeToDo from '../images/timeToDo.svg';
 
 const ToDoDetails = ( {task} ) => {
 
@@ -88,6 +90,19 @@ const ToDoDetails = ( {task} ) => {
             return `${Math.floor(theTime)} days ago`
         }
     }
+    const Remove = () => {
+        ToDoDispatch({type:'REMOVE_TASK', id:task.id})
+    }
+    const End = (e) => {
+        let liItem = e.target.parentNode.parentNode;
+        liItem.classList.add('move-right');
+
+        setTimeout(() => {
+            DoneDispatch({type:'ADD_DONE', title:task.title, success:true});
+            ToDoDispatch({type:'REMOVE_TASK', id:task.id});
+        },700)
+        
+    }
 
     
 
@@ -96,20 +111,21 @@ const ToDoDetails = ( {task} ) => {
             <div>
                  {task.title}
             </div>
-            <div>
+            <div className="img-and-text">
+                <img src={timeToDo} /> 
                 { calculateTime()}
             </div>  
-            <div>
-                 added: {AddTime(task.addTimeInMilisec)} 
+            <div className="img-and-text">
+                 <img src={added} />
+                 {AddTime(task.addTimeInMilisec)} 
             </div>
-            <div className="inside-image" onClick={() => {
-                        DoneDispatch({type:'ADD_DONE', title:task.title, success:true})
-                        ToDoDispatch({type:'REMOVE_TASK', id:task.id})}
-                            }>
-            <img src={ok} alt="ok"/></div>
+            <div className="inside-image" >
+            <img src={ok} alt="ok" onClick={(e)=>End(e)}/>
+            </div>
             <div className="inside-image" 
-            onClick={ () => {ToDoDispatch({type:'REMOVE_TASK', id:task.id}) }}
-            ><img src={trash} alt="trash"/></div>
+            onClick={Remove}
+            ><img src={trash} alt="trash"/>
+            </div>
         </li>
     )
 }

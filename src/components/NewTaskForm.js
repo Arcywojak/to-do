@@ -2,7 +2,8 @@ import React, {useContext, useState} from 'react'
 import {ToDoContext} from '../contexts/ToDoContext'
 
 const NewTaskForm = () => {
-const {ToDoDispatch} = useContext(ToDoContext);
+
+    const {ToDoDispatch} = useContext(ToDoContext);
 
     const [title,setTitle] = useState('');
     const [time, setTime] = useState(1);
@@ -27,31 +28,47 @@ const handleSubmit = (e) => {
     setTitle('');
     setTime(1);
 }
+
+    const setTimeFunction = (char) => {
+        if(char === '-' && time > 1){
+            setTime(time - 1);
+        } else if(char==='+') {
+            setTime(time + 1);
+        }
+    }
+
     return (
         <div className="to-do-form">
-            <form className="" onSubmit={(e)=>{handleSubmit(e)}}>
-                <h1>Adding new task</h1><div></div>
-                <input type="text" required placeholder="Title" value={title} 
-                onChange={(e) => { setTitle(e.target.value)}}/>
-                
-                <div></div>
+            <form className="form" onSubmit={(e)=>{handleSubmit(e)}}>
+                <div className="inside-form">
+             <div className="inputs">
+                <div className="single-input first">
+                    <label for="title">Title:</label> 
+                    <input id="title" name="title" type="text" required placeholder="e.g. to go sleeping..." value={title} 
+                    onChange={(e) => { setTitle(e.target.value)}}/><br/> 
+                </div>
+                <div className="single-input second">
+                    <label for="time">Duration:</label>
+                    <div class="input-number">
+                        <input type="button" onClick={() => {setTimeFunction('-')}} value="-"/>
+                        <input type="number" 
+                        value={time} name="time" id="time" readOnly
+                        />
+                        <input type="button" onClick={() => {setTimeFunction('+')}} value="+"/>
+                    </div>
 
-                <h3>How long do you need to do this?</h3>
-                
-                <div></div>
+                    <select 
+                    onChange={(e) => { setUnit(e.target.value)}}>
+                        <option>Minute(s)</option>
+                        <option>Hour(s)</option>
+                        <option>Day(s)</option>
+                    </select>
+                </div>
+            </div>
 
-                <input type="number" min='1' max='43200' value={time} 
-                onChange={(e) => { setTime(e.target.value)}}/>
+                    <input className="submit-btn" type="submit" value="Add new task"/>
 
-                <select 
-                onChange={(e) => { setUnit(e.target.value)}}>
-                    <option>Minute(s)</option>
-                    <option>Hour(s)</option>
-                    <option>Day(s)</option>
-                </select><br/><br/>
-
-                <input type="submit" value="Let's go"/>
-
+                </div>
             </form>
         </div>
     )

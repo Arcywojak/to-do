@@ -5,12 +5,13 @@ export const DoneReducer = (state,action) =>{
         case 'ADD_DONE':
             let time = new Date();
             return(
-            [...state, {
+            [ {
                 id:uid(),
                 title:action.title,
                 success: action.success,
                 added:time.toLocaleString()
-            }]
+            }, ...state
+        ]
             )
 
         case 'REMOVE_TASK':

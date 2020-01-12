@@ -1,13 +1,7 @@
 body {
   margin: 0 auto;
-  background-image: linear-gradient(to bottom, black, blue 500px, black 900px);
-  background-size: 100% 100%;
-  background-position: 50% 100%;
-  background-repeat: no-repeat;
-  font-family: Arial, Helvetica, sans-serif;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #66a6ff;
+  font-family: 'roboto';
 }
 
 *, *::before, *::after {
@@ -19,139 +13,217 @@ code {
 }
 
 .App {
+  color: #fefefe;
   margin: 0 auto;
   text-align: center;
   height: 100vh;
   width: 100%;
   max-width: 1000px;
-}
-
-footer {
-  height: 70px;
-  color: white;
-  background: black;
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  background: #0042ab;
 }
 
 header {
-  border: 8px solid blueviolet;
-  margin: 0 auto;
-  background: steelblue;
-  padding: 2.5vw;
-  font-size: 1.5em;
+  padding: 1vw 1vw;
+  margin-top: 1.5vw;
+  height: 200px;
 }
 
 header h1 {
-  margin: 0;
+  font-size: 4em;
 }
 
 .to-do-form {
-  color: #fefefe;
-  margin: 2vw;
-  border: 4px solid white;
-  padding: 30px;
-  background: lightskyblue;
+  color: #002f7a;
+  height: 300px;
+  background: #66a6ff;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid #002f7a;
+  border-left: 2px solid #002f7a;
 }
 
 .to-do-form input[type="text"] {
   border: none;
-  border: 3px solid #fefefe;
-  background: steelblue;
-  color: #fefefe;
-  font-size: 2em;
-  padding: 4px;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+  font-size: 2.2em;
+  max-width: 500px;
 }
 
-.to-do-form input[type="submit"] {
-  min-width: 120px;
-  border: none;
-  border-radius: 25px;
+.to-do-form label {
+  margin-right: 2vw;
+  font-size: 3em;
+}
+
+.inside-form .submit-btn {
+  width: 100%;
   font-size: 1.5em;
-  height: 50px;
+  border: 1px solid darkblue;
+  background-color: #9cc1ff;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 1vw;
 }
 
-.grid-form {
+.inputs {
+  text-align: left;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+}
+
+.single-input {
+  margin: 20px 0;
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: 60% 40%;
+}
+
+.single-input.first {
+  grid-template-columns: 200px 500px;
+}
+
+.single-input.second {
+  grid-template-columns: 200px 200px 300px;
+}
+
+.input-number {
+  position: relative;
+  height: 30px;
+  width: 60%;
+  box-sizing: border-box;
+  min-width: 129px;
+}
+
+.input-number input[type="number"] {
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid black;
+  background: transparent;
+  font-size: 18px;
+  width: 180px;
+  font-size: 2em;
+  box-sizing: inherit;
+  padding-left: 15px;
+}
+
+.input-number input[type="button"] {
+  font-size: 20px;
+  position: absolute;
+  background: #fefefe;
+  background-color: #9cc1ff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid purple;
+  cursor: pointer;
+  padding: 0;
+  top: 2px;
+  z-index: 2;
+}
+
+.input-number input[type="button"]:active {
+  background: #b6d1ff;
+}
+
+.input-number input[type="button"]:first-child {
+  left: 0;
+}
+
+.input-number input[type="button"]:last-child {
+  right: -50px;
+}
+
+select {
+  max-width: 300px;
+  height: 40px;
+  text-align: center;
+  margin-top: 12px;
+  background-color: #9cc1ff;
+  border: none;
+  border: 1px solid darkblue;
+  font-size: 1.5em;
 }
 
 .nav-grid {
-  width: 80%;
-  max-width: 400px;
+  width: 100%;
+  height: 60px;
+  font-size: 1.9em;
   display: grid;
-  text-align: left;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: calc(50% - 1px) 2px calc(50% - 1px);
+  background-color: #9cc1ff;
+  margin: 0 auto;
+  cursor: pointer;
+  border: 2px solid darkblue;
+}
+
+.line {
+  background-color: darkblue;
+  height: 60px;
 }
 
 .nav-option {
-  text-align: center;
-  overflow: auto;
-  background: #fefefe;
-  border: 4px solid red;
-  height: 50px;
   display: grid;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-}
-
-.nav-option:hover {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  height: 56px;
+  transition: background-color .2s ease-in;
 }
 
 .nav-option.active {
-  border: 4px solid green;
-  background: #e8fce8;
-}
-
-.list-of-tasks {
-  min-height: 40%;
-  max-height: 350px;
-  overflow: auto;
-  color: #fefefe;
-  text-align: left;
-}
-
-.inside-image {
-  padding-top: 3px;
-}
-
-.inside-image img {
-  background: #eeeeee;
-  cursor: pointer;
-  width: 40px;
-  border-radius: 50%;
-  border: 1px solid darkslateblue;
-  transition: background-color .3s ease-in-out;
-}
-
-.inside-image img:hover {
-  background: lightskyblue;
+  background-color: #2c2fc9;
 }
 
 ul {
-  padding: 1vw 0;
+  padding: 0;
+  max-height: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-ul > li {
-  width: 90%;
-  list-style-type: none;
-  margin: 15px auto 0;
+.list-of-tasks-empty {
+  padding-top: 5vw;
+  font-size: 2em;
+  font-family: 'roboto';
+}
+
+.li-item {
+  padding: 0 1vw;
   display: grid;
+  grid-template-columns: 1fr 200px 150px 60px 60px;
+  gap: 20px;
+  width: 100%;
+  background: lightblue;
+  height: 60px;
+  color: darkblue;
   justify-content: center;
+  font-size: 1.5em;
   align-items: center;
-  text-align: left;
-  padding-left: 20px;
-  grid-template-columns: 40% 20% 20% 10% 10%;
-  height: 50px;
-  background: #1c3341;
-  font-size: 1.2em;
-  color: white;
-  border: 2px solid lightblue;
+  border-top: 3px solid #000;
+  margin-bottom: 35px;
+  transition: transform .7s ease-in;
+}
+
+.li-item.move-right {
+  transform: translateX(100%);
+}
+
+.inside-image {
+  cursor: pointer;
+}
+
+.inside-image img {
+  width: 40px;
+}
+
+.img-and-text {
+  display: grid;
+  grid-template-columns: 30px calc(100% - 30px);
+  align-items: center;
+  justify-content: center;
+}
+
+.img-and-text img {
+  width: 30px;
 }

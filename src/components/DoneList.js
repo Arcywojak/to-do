@@ -14,7 +14,9 @@ const ToDoList = () => {
             </ul>
         </div>
     ) : (
-        <div>You have not done anything yet</div>
+        <div className="list-of-tasks-empty">
+            <h1>You have done nothing at this moment</h1>
+        </div>
     )
 }
 

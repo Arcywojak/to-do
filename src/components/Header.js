@@ -8,8 +8,7 @@ const Header = () => {
 
     return (
         <header>
-            <h1>Simple "TO-DO" web application</h1>
-            <h2>You have {tasks.length} tasks to do and {done.length} done tasks at this moment.</h2>
+            <h1>Another do to list...</h1>
         </header>
     )
 }
