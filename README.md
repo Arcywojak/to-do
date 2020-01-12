@@ -1,3 +1,7 @@
+Page avaible here: https://arcywojak.github.io/to-do/
+Simple to-do app to practise react hooks and context
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
